@@ -13,7 +13,7 @@
     'user' =>  Auth::user(),
     ]) !!};
   </script>
-  <title>{{ config('app.name', 'Laravel') }}</title>
+  <title>{{ config('app.name', 'MICRO') }}</title>
 
   <!-- Scripts -->
   <script src="{{ asset('js/app.js') }}" defer></script>
