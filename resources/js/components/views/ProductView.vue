@@ -83,7 +83,7 @@
             <img width="130"  class="d-inline-block align-center" :src="$root.baseUrl+'/images/logos/logo-micro-'+$root.local+'.jpg'" alt="">
           </div>
           <!-- {{files.dxfs[0].file_path}} -->
-          <iframe id="cadView" :src="'https://sharecad.org/cadframe/load?url=micro.plankwebdev.com/storage/dxfs/'+files.dxfs[0].file_path" width="100%" height="500" frameborder="0" scrolling="no" allowfullscreen="allowfullscreen"></iframe>
+          <iframe id="cadView" :src="'https://sharecad.org/cadframe/load?url=catalogo-micro.com/storage/dxfs/'+files.dxfs[0].file_path" width="100%" height="500" frameborder="0" scrolling="no" allowfullscreen="allowfullscreen"></iframe>
           <div id="tapadorBottom"></div>
         </div>
         <div v-else class="alert alert-info" role="alert">
