@@ -27,5 +27,8 @@
     "If you did not receive the email": "Si no has recibido el email",
     "click here to request another": "pulsa aquí para que te enviemos otro",
     "Telephone": "Telefono",
-    "Country": "País"
+    "Country": "País",
+    "Company": "Empresa",
+    "City": "Ciudad",
+    "Address": "Dirección"
 }
