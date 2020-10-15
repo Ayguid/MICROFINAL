@@ -71,7 +71,7 @@
                 <label for="company" class="col-md-4 col-form-label text-md-right">{{ __('Company') }}</label>
 
                 <div class="col-md-6">
-                    <input id="company" type="text" class="form-control @error('company') is-invalid @enderror" name="company" value="{{ $data->telephone }}" autocomplete="company" autofocus>
+                    <input id="company" type="text" class="form-control @error('company') is-invalid @enderror" name="company" value="{{ $data->company }}" autocomplete="company" autofocus>
 
                     @error('company')
                         <span class="invalid-feedback" role="alert">
