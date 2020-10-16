@@ -24,12 +24,14 @@
                       <a class="btn btn-primary" href="{{route('admin.cats')}}">Categories</a>
                     </div>
 
-                    <div class="mb-2">
-                      <a class="btn btn-primary" href="{{route('admin.translations')}}">Translations</a>
-                    </div>
                     @endrole
 
                     @role('superadmin')
+
+                    <div class="mb-2">
+                      <a class="btn btn-primary" href="{{route('admin.translations')}}">Translations</a>
+                    </div>
+                    
                     <div class="mb-2">
                       <a class="btn btn-primary" href="{{route('admin.fileManager')}}">Media Manager</a>
                     </div>

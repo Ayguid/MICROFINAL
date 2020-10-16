@@ -50,11 +50,12 @@ if ($lang == 'Pt-BR') {
 
 
 
-
+      {{-- {{Auth::user()->}} --}}
 
       @isset($product)
         <product-view
-        :can_edit='{!! json_encode((Auth::user())? Auth::user()->hasRole(['superadmin', 'admin']):null) !!}'
+        {{-- :can_edit='{!! json_encode((Auth::user())? Auth::user()->hasRole(['superadmin', 'admin']):null) !!}' --}}
+        :can_edit='{!! json_encode((Auth::user())? Auth::user()->hasRole(['superadmin']):null) !!}'
         :can_edit_route='{!! json_encode(route('admin.prods.edit', $product->id)) !!}'
         :product='{!! json_encode($product) !!}'
         ></product-view>
