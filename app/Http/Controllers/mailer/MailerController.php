@@ -29,7 +29,7 @@ class MailerController extends Controller
     $from = $request->from;
     $product = $request->product;
     $text = $request->textArea;
-    $defaultEmail = 'microSA@micro.com';
+    $defaultEmail = 'info@catalogo-micro.com';
     $title=0;
 
     switch ($to) {//titles
