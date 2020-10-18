@@ -6,7 +6,7 @@
     <form class="" action="index.html" method="post" @submit="sendMail">
     <!-- <form class="" action="./send-mail" method="get"> -->
       <p>{{this.title}}</p>
-      
+
     <div class="row">
         <div class="col-6">
           <input type="text" name="to" :value="this.to" hidden>
@@ -111,7 +111,7 @@ export default {
             text: JSON.stringify(response.data.errors)
           });
         }
-        if (response.statusText == "OK") {
+        if (response.status == "200") {
           this.$swal(response.data.message);
           this.$bvModal.hide(this.modal);
         }
