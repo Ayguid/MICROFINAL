@@ -49,8 +49,8 @@ class MailConsulta extends Mailable
       if ($this->view == 'micro') {
         $v= 'mails.microMail';
       }
-      return $this->from($this->fromMail, 'Mailtrap')
-          ->subject('Mailtrap Confirmation')
+      return $this->from($this->fromMail, 'MICRO')
+          ->subject('MICRO-WEB')
           ->markdown($v)
           ->with([
               'toMail' => $this->toMail,
