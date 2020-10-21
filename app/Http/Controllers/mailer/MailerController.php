@@ -33,10 +33,10 @@ class MailerController extends Controller
     $title=0;
 
     switch ($to) {//titles
-      case 'Ingenieria':
+      case 'Comercial':
         $title = 1;
         break;
-      case 'Comercial':
+        case 'Ingenieria':
         $title = 2;
         break;
       default:

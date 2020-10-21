@@ -2,7 +2,7 @@
 
   <div class="">
 
-    <transition name="fade"appear >
+    <transition name="fade" appear >
       <div class="card mb-4">
         <!-- <a v-if="$root.authadmin" :href="admin_route_view">EDITAR</a> -->
         <h6 v-if="product.category" class="p-2"><span>{{ $t("Categoria") }}:</span>
