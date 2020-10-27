@@ -126,8 +126,10 @@
                   {{dxf.file_path}}</a>
                 </div>
               </div>
+
               <div v-else class="">
-                {{$t('Por Favor Login/Registrate para poder descargar los archivos.')}}
+                <br>
+                <h5>{{$t('Iniciar sesión para descargar archivos.')}}</h5>
               </div>
             </div>
             <div v-else class="">

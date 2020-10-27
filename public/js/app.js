@@ -2631,6 +2631,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['product', 'can_edit', 'can_edit_route'],
   data: function data() {
@@ -82433,15 +82435,15 @@ var render = function() {
                         2
                       )
                     : _c("div", {}, [
-                        _vm._v(
-                          "\n              " +
+                        _c("br"),
+                        _vm._v(" "),
+                        _c("h5", [
+                          _vm._v(
                             _vm._s(
-                              _vm.$t(
-                                "Por Favor Login/Registrate para poder descargar los archivos."
-                              )
-                            ) +
-                            "\n            "
-                        )
+                              _vm.$t("Iniciar sesión para descargar archivos.")
+                            )
+                          )
+                        ])
                       ])
                 ])
               : _c("div", {}, [
