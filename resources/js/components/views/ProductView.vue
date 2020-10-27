@@ -129,7 +129,7 @@
 
               <div v-else class="">
                 <br>
-                <h5>{{$t('Iniciar sesión para descargar archivos.')}}</h5>
+                <h5>{{$t('Iniciar sesión para descargar archivos')}}</h5>
               </div>
             </div>
             <div v-else class="">
