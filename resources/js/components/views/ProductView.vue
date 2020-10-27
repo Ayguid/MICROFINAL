@@ -120,7 +120,7 @@
                   <i class="far fa-file-archive bigIcon"></i>{{zip.file_path}}</a>
                 </div>
               <div v-for="dxf in files.dxfs" class="">
-                <a target="_blank" class="btn" role="button" :href="$root.baseUrl+'/storage/dxfs/'+dxf.file_path" >
+                <a :download="$root.baseUrl+'/storage/dxfs/'+dxf.file_path" class="btn" role="button" :href="$root.baseUrl+'/storage/dxfs/'+dxf.file_path" >
                   <i class="far fa-file-archive bigIcon"></i>
                 <!-- <img width="5%" :src="$root.baseUrl+'/icons/cad_logo.svg'" alt=""> -->
                   {{dxf.file_path}}</a>
@@ -133,7 +133,8 @@
             <div v-else class="">
               <p>{{$t('Archivos CAD 2D y 3D.')}}</p>
             </div>
-            <p>
+            <br>
+            <p v-if="$root.authuser">
               <b-button v-b-modal.modal-2>{{$t('Solicitar Archivos')}}</b-button>
               <b-modal id="modal-2" title="Micro" :hide-footer="true" >
                 <contact-mail-form
