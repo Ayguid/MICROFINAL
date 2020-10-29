@@ -136,7 +136,7 @@
               <p>{{$t('Archivos CAD 2D y 3D.')}}</p>
             </div>
             <br>
-              <p v-if="$root.authuser">
+              <p>
                 <!-- <b-button v-b-modal.modal-2>{{$t('Solicitar Archivos')}}</b-button> -->
                 <b-modal id="modal-2" title="Micro" :hide-footer="true" >
                   <contact-mail-form
@@ -148,8 +148,8 @@
                   ></contact-mail-form>
                 </b-modal>
               </p>
-              <div class="">
-                <h5>&nbsp; <i class="fas fa-info-circle infobtn" aria-hidden="true" v-b-modal.modal-2></i></h5> 
+              <div v-if="$root.authuser" class="">
+                <h5>&nbsp; <i class="fas fa-info-circle infobtn" aria-hidden="true" v-b-modal.modal-2></i></h5>
               </div>
           </b-tab>
         </b-tabs>

@@ -82500,53 +82500,53 @@ var render = function() {
             _vm._v(" "),
             _c("br"),
             _vm._v(" "),
-            _vm.$root.authuser
-              ? _c(
-                  "p",
+            _c(
+              "p",
+              [
+                _c(
+                  "b-modal",
+                  {
+                    attrs: {
+                      id: "modal-2",
+                      title: "Micro",
+                      "hide-footer": true
+                    }
+                  },
                   [
-                    _c(
-                      "b-modal",
-                      {
-                        attrs: {
-                          id: "modal-2",
-                          title: "Micro",
-                          "hide-footer": true
-                        }
-                      },
-                      [
-                        _c("contact-mail-form", {
-                          attrs: {
-                            modal: "modal-2",
-                            title: _vm.$t("Solicitar Planos"),
-                            images: this.files.images,
-                            to: "Ingenieria",
-                            product: this.product
-                          }
-                        })
-                      ],
-                      1
-                    )
+                    _c("contact-mail-form", {
+                      attrs: {
+                        modal: "modal-2",
+                        title: _vm.$t("Solicitar Planos"),
+                        images: this.files.images,
+                        to: "Ingenieria",
+                        product: this.product
+                      }
+                    })
                   ],
                   1
                 )
-              : _vm._e(),
+              ],
+              1
+            ),
             _vm._v(" "),
-            _c("div", {}, [
-              _c("h5", [
-                _vm._v("  "),
-                _c("i", {
-                  directives: [
-                    {
-                      name: "b-modal",
-                      rawName: "v-b-modal.modal-2",
-                      modifiers: { "modal-2": true }
-                    }
-                  ],
-                  staticClass: "fas fa-info-circle infobtn",
-                  attrs: { "aria-hidden": "true" }
-                })
-              ])
-            ])
+            _vm.$root.authuser
+              ? _c("div", {}, [
+                  _c("h5", [
+                    _vm._v("  "),
+                    _c("i", {
+                      directives: [
+                        {
+                          name: "b-modal",
+                          rawName: "v-b-modal.modal-2",
+                          modifiers: { "modal-2": true }
+                        }
+                      ],
+                      staticClass: "fas fa-info-circle infobtn",
+                      attrs: { "aria-hidden": "true" }
+                    })
+                  ])
+                ])
+              : _vm._e()
           ])
         ],
         1
