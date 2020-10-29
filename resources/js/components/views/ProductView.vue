@@ -102,7 +102,7 @@
         <h4>{{$t('Hoja técnica')}}</h4>
         <div v-if="product.has_pdf" class="">
           <div v-for="pdf in files.pdfs" class="">
-            <a target="_blank" class="btn" role="button" :href="$root.baseUrl+'/storage/pdfs/'+pdf.file_path" >
+            <a target="_blank" class="btn file" role="button" :href="$root.baseUrl+'/storage/pdfs/'+pdf.file_path" >
               <i class="far fa-file-pdf bigIcon"></i>{{pdf.file_path}}</a>
             </div>
           </div>
@@ -116,11 +116,11 @@
           <div v-if="product.has_zip || product.has_cad_2d" class="">
             <div v-if="$root.authuser" class="">
               <div v-for="zip in files.zips" class="">
-                <a target="_blank" class="btn" role="button" :href="$root.baseUrl+'/storage/zips/'+zip.file_path" >
+                <a target="_blank" class="btn file" role="button" :href="$root.baseUrl+'/storage/zips/'+zip.file_path" >
                   <i class="far fa-file-archive bigIcon"></i>{{zip.file_path}}</a>
                 </div>
               <div v-for="dxf in files.dxfs" class="">
-                <a :download="$root.baseUrl+'/storage/dxfs/'+dxf.file_path" class="btn" role="button" :href="$root.baseUrl+'/storage/dxfs/'+dxf.file_path" >
+                <a download class="btn file" role="button" :href="$root.baseUrl+'/storage/dxfs/'+dxf.file_path" >
                   <i class="far fa-file-archive bigIcon"></i>
                 <!-- <img width="5%" :src="$root.baseUrl+'/icons/cad_logo.svg'" alt=""> -->
                   {{dxf.file_path}}</a>
@@ -136,18 +136,21 @@
               <p>{{$t('Archivos CAD 2D y 3D.')}}</p>
             </div>
             <br>
-            <p v-if="$root.authuser">
-              <b-button v-b-modal.modal-2>{{$t('Solicitar Archivos')}}</b-button>
-              <b-modal id="modal-2" title="Micro" :hide-footer="true" >
-                <contact-mail-form
-                :modal="'modal-2'"
-                :title="$t('Solicitar Planos')"
-                :images="this.files.images"
-                :to="'Ingenieria'"
-                :product="this.product"
-                ></contact-mail-form>
-              </b-modal>
-            </p>
+              <p v-if="$root.authuser">
+                <!-- <b-button v-b-modal.modal-2>{{$t('Solicitar Archivos')}}</b-button> -->
+                <b-modal id="modal-2" title="Micro" :hide-footer="true" >
+                  <contact-mail-form
+                  :modal="'modal-2'"
+                  :title="$t('Solicitar Planos')"
+                  :images="this.files.images"
+                  :to="'Ingenieria'"
+                  :product="this.product"
+                  ></contact-mail-form>
+                </b-modal>
+              </p>
+              <div class="">
+                <h5>&nbsp; <i class="fas fa-info-circle infobtn" aria-hidden="true" v-b-modal.modal-2></i></h5> 
+              </div>
           </b-tab>
         </b-tabs>
 
@@ -175,3 +178,12 @@
       }
     }
     </script>
+    <style media="screen">
+      .infobtn{
+        font-size: 30px;
+        cursor: pointer;
+      }
+      .file:hover{
+        background-color:rgb(209, 209, 209);
+      }
+    </style>
