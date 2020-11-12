@@ -28,6 +28,8 @@ return [
   'comments'=> 'Comentários',
 
   'will_reply'=> 'Entraremos em contato em breve',
+
+  
 ];
 
 
