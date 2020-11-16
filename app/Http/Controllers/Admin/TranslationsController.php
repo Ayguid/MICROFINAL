@@ -36,17 +36,18 @@ class TranslationsController extends Controller
 
   public function save(Request $request)
   {
+    // dd($request);
 
-    $validator =  Validator::make($request->newTranslation, [
-      'word' => ['required'],
-      'en' => ['required'],
-      'pt' => ['required']
-    ]);
-
-    if ($validator->fails()) {
-      $request->session()->flash('alert-danger', $validator->errors());
-      return redirect()->route('admin.translations')->withErrors($validator);
-    }
+    // $validator =  Validator::make($request->newTranslation, [
+    //   'word' => ['required'],
+    //   'en' => ['required'],
+    //   'pt' => ['required']
+    // ]);
+    //
+    // if ($validator->fails()) {
+    //   $request->session()->flash('alert-danger', $validator->errors());
+    //   return redirect()->route('admin.translations')->withErrors($validator);
+    // }
 
 
     $contentEN = json_decode(file_get_contents($this->path.'_en.json'), true);
