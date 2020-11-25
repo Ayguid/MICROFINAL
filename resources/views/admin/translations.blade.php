@@ -39,6 +39,12 @@
            <input autofocus class="form-control" type="text" name="newTranslation[pt]" value="" placeholder="Portugues">
          </div>
 
+           <div class="col-md-12 pt-2">
+             <button type="submit" name="button" class="btn btn-primary">
+               Guardar
+             </button>
+           </div>
+
         </div>
 
     <div class="form-group row">

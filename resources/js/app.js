@@ -54,38 +54,46 @@ const lang = (document.documentElement.lang=='pt-BR')?'pt':document.documentElem
 import VueInternationalization from 'vue-i18n';
 
 // translations = translations[lang]
-switch (lang) {
-  case 'en':
-  translations =  require('../../storage/app/public/lang/translations_en.json')
-  break;
-  case 'pt':
-  translations = require('../../storage/app/public/lang/translations_pt.json')
-  break;
-  default:
-}
-Vue.use(VueInternationalization);
-const i18n = new VueInternationalization({
-  locale: lang,
-  messages: translations,
-  objectNotation: true,
-  keySeparator:true,
-  silentTranslationWarn: true
-});
-// console.log(translations[`${lang}`+'.values']);
-//
+// switch (lang) {
+//   case 'en':
+//   translations =  require('../../storage/app/public/lang/translations_en.json')
+//   break;
+//   case 'pt':
+//   translations = require('../../storage/app/public/lang/translations_pt.json')
+//   break;
+//   default:
+// }
 
-const app = new Vue({
-  el: '#app',
-  i18n,
-  data(){
-    return  {
-      local:lang,
-      baseUrl:window.axios.defaults.baseURL,
-      authuser:window.Laravel.user
-    }
-  },
-  mounted(){
-    console.log("Welcome tu MICRO, curious you!");
-    // console.log(this.authuser);
-  }
-});
+
+
+fetch(window.axios.defaults.baseURL+`/storage/lang/translations_${lang}.json`) // para buscar los translations cada vez antes de montar cualquier pagina por si se actualizaron
+  .then(response => response.json())
+  .then(data => {
+
+
+    // sacar de aca si hay que volver translations back
+    Vue.use(VueInternationalization);
+    let i18n = new VueInternationalization({
+      locale: lang,
+      messages: data,
+      objectNotation: true,
+      keySeparator:true,
+      silentTranslationWarn: true
+    });
+    const app = new Vue({
+      el: '#app',
+      i18n,
+      data(){
+        return  {
+          local:lang,
+          baseUrl: window.axios.defaults.baseURL,
+          authuser: window.Laravel.user
+        }
+      },
+      mounted(){
+        // console.log("Welcome tu MICRO, curious you!");
+      }
+    });
+    // sacar de aca si hay que volver translations back end
+
+  });

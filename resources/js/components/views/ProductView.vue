@@ -35,7 +35,8 @@
                 <div v-for="att in product.attributes" v-if="att.attribute.filterable" class="col-12 col-md-6 col-lg-6">
                   <!-- <h6>  <strong> {{(att.attribute['name_'+$root.local])?att.attribute['name_'+$root.local]:att.attribute['name_es']}} </strong>  </h6> -->
                   <h6>  <strong> {{$t(att.attribute.name_es)}} </strong>  </h6>
-                  <h6>{{(att['value_'+$root.local])?att['value_'+$root.local]:att['value_es']}}</h6>
+                  <!-- <h6>{{(att['value_'+$root.local])?att['value_'+$root.local]:att['value_es']}}</h6> -->
+                  <h6>{{$t(att.value_es)}}</h6>
                 </div>
 
                 <div v-for="att in product.attributes" v-if="!att.attribute.filterable" class="col-12 col-md-6 col-lg-6">

@@ -36,8 +36,7 @@ class TranslationsController extends Controller
 
   public function save(Request $request)
   {
-    // dd($request);
-
+    // dd($request->all());
     // $validator =  Validator::make($request->newTranslation, [
     //   'word' => ['required'],
     //   'en' => ['required'],
@@ -49,12 +48,11 @@ class TranslationsController extends Controller
     //   return redirect()->route('admin.translations')->withErrors($validator);
     // }
 
-
     $contentEN = json_decode(file_get_contents($this->path.'_en.json'), true);
     $contentPT = json_decode(file_get_contents($this->path.'_pt.json'), true);
 
 
-    if ($request->newTranslation['word']) {
+    if ($request->newTranslation['word']) { //palabra nueva
       if (array_key_exists($request->newTranslation['word'], $contentEN['en']) || array_key_exists($request->newTranslation['word'], $contentPT['pt'])) {
         $request->session()->flash('alert-danger', 'La palabra ya tiene traducción');
         return redirect()->route('admin.translations');
@@ -64,12 +62,15 @@ class TranslationsController extends Controller
     }
 
 
-    foreach ($request->all() as $palabra => $array) {
-      if($palabra !="_token" && $palabra !="newTranslation"){
+    foreach ($request->all() as $palabra => $array) {  //update palabra
+      if($palabra !=="_token" && $palabra !=="newTranslation" && $palabra !=="button"){
+        $palabra = str_replace("_"," ",$palabra);
         $contentEN['en'][$palabra] = $array['en'];
         $contentPT['pt'][$palabra] = $array['pt'];
       }
     }
+    // dd($contentEN);
+    // dd($contentEN['en']['Consultas adicionales']);
 
     $json_objectEN = json_encode($contentEN);
     file_put_contents($this->path.'_en.json', $json_objectEN);
@@ -77,9 +78,6 @@ class TranslationsController extends Controller
     $json_objectPT = json_encode($contentPT);
     file_put_contents($this->path.'_pt.json', $json_objectPT);
 
-    // chanchada para remover duplicates
-    // file_put_contents($this->path.'_en.json', json_encode(array_unique($contentEN)));
-    // file_put_contents($this->path.'_pt.json', json_encode(array_unique($contentPT)));
     $request->session()->flash('alert-success', 'Exito');
     return redirect()->route('admin.translations');
   }
@@ -94,18 +92,8 @@ class TranslationsController extends Controller
     $contentPT = json_decode(file_get_contents($this->path.'_pt.json'), true);
 
 
-    // if (condition) {
-    //   $pattern = '/ /i';
-    //   $file->file_path = preg_replace($pattern, '', $str
-    // }
-
-
-
     $matchesEN = array();
     foreach($contentEN['en'] as $k=>$v) {
-      // if(preg_match("/\b$searchword\b/i", $k)) {
-      //   $matchesEN[$k] = $contentEN['en'][$k];
-      // }
       if (stripos(strtolower($k), $searchword) !== false) {
         $matchesEN[$k] = $contentEN['en'][$k];
       }
@@ -113,9 +101,6 @@ class TranslationsController extends Controller
 
     $matchesPT = array();
     foreach($contentPT['pt'] as $k=>$v) {
-      // if(preg_match("/\b$searchword\b/i", $k)) {
-      //   $matchesPT[$k] = $contentPT['pt'][$k];
-      // }
       if (stripos(strtolower($k), $searchword) !== false) {
         $matchesPT[$k] = $contentPT['pt'][$k];
       }
@@ -124,8 +109,7 @@ class TranslationsController extends Controller
     $collectionPT = new Collection($matchesPT);
     // $contentEN = json_decode(file_get_contents($this->path.'_en.json'), true);
     // $contentPT = json_decode(file_get_contents($this->path.'_pt.json'), true);
-    //
-    //
+
     // $collectionEN = new Collection($contentEN['en']);
     // $collectionPT = new Collection($contentPT['pt']);
 
