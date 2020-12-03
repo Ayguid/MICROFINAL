@@ -51,9 +51,9 @@
   :is-full-page="fullPage"></loading>
 </div>
 
-
+<!-- {{this.category.get_top_categories.id}} -->
 <div class="bottomright bottomrightExtra">
-  <b-button v-b-modal.modal-1>{{$t("Consultar por otros productos")}}</b-button>
+  <b-button v-b-modal.modal-1>{{(this.category.get_top_categories.id==1)?($t("Consultar por otras carreras")):($t("Consultar por otros productos"))}}</b-button>
 </div>
 <!-- <img width="130"  class="d-inline-block align-center" :src="$root.baseUrl+'/images/logos/logo-micro-'+$root.local+'.jpg'" alt=""> -->
 <b-modal id="modal-1" title="Micro" :hide-footer="true" >

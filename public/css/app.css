@@ -11361,6 +11361,10 @@ a.text-dark:focus {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }
 
+.hidden {
+  display: none;
+}
+
 body {
   min-height: 110vH;
   padding-right: 0 !important;

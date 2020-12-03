@@ -37,10 +37,11 @@ Vue.component('product-view', require('./components/views/ProductView.vue').defa
 Vue.component('filter-menu', require('./components/FilterMenu.vue').default);
 Vue.component('search-component', require('./components/forms/SearchComponent.vue').default);
 Vue.component('product-component', require('./components/ProductComponent.vue').default);
+Vue.component('register-country-validator', require('./components/RegisterCountryValidator.vue').default);
 
 import BootstrapVue from 'bootstrap-vue';
 Vue.use(BootstrapVue);
-// import 'bootstrap-vue/dist/bootstrap-vue.css';
+import 'bootstrap-vue/dist/bootstrap-vue.css';
 /**
 * Next, we will create a fresh Vue application instance and attach it to
 * the page. Then, you may begin adding components to this application

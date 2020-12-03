@@ -142,7 +142,7 @@
                 <b-modal id="modal-2" title="Micro" :hide-footer="true" >
                   <contact-mail-form
                   :modal="'modal-2'"
-                  :title="$t('Solicitar Planos')"
+                  :title="$t('Solicitar Archivos')"
                   :images="this.files.images"
                   :to="'Ingenieria'"
                   :product="this.product"
@@ -150,7 +150,19 @@
                 </b-modal>
               </p>
               <div v-if="$root.authuser" class="">
-                <h5>&nbsp; <i class="fas fa-info-circle infobtn" aria-hidden="true" v-b-modal.modal-2></i></h5>
+                <div class="text-left my-3">
+                  <!-- <b-button v-b-tooltip.hover title="Tooltip directive content">
+                    Hover Me
+                  </b-button> -->
+
+                  <!-- <b-button id="tooltip-target-1">
+                    Hover Me
+                  </b-button> -->
+                  <b-tooltip target="tooltip-target-1" triggers="hover" placement="right">
+                    {{$t('Contacto')}}
+                  </b-tooltip>
+                  <h5>&nbsp; <i id="tooltip-target-1" class="far fa-envelope infobtn" aria-hidden="true" v-b-modal.modal-2></i></h5>
+                </div>
               </div>
           </b-tab>
         </b-tabs>

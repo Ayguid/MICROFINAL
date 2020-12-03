@@ -22,7 +22,7 @@
         </div>
           <div class="form-group">
             <label for="email">User Email</label><br>
-            <input id="user_email" type="email" name="from" :value="user ? user.email : ''">
+            <input id="user_email" type="email" name="from" :value="user ? user.email : ''" class="form-control">
           </div>
         </div>
         <div v-if="this.product" class="col-6">
@@ -37,9 +37,20 @@
       </div>
       <input type="text" name="locale" :value="$root.local" hidden>
 
+      <div v-if="!$root.authuser" class="">
+        <div class="form-group">
+          <label for="country" class="">Pais</label><br>
+          <input id="country" type="text" name="country" value="" class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="city">Ciudad</label><br>
+          <input id="city" type="text" name="city" value="" class="form-control">
+        </div>
+      </div>
+
       <div class="form-group">
         <label for="email">{{$t('Consultas adicionales')}}</label><br>
-        <textarea name="textArea" rows="6" ></textarea>
+        <textarea class="form-control" name="textArea" rows="6" ></textarea>
       </div>
       <input type="submit" class="btn btn-primary" name="Enviar" value="Enviar" >
 

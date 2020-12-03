@@ -23,6 +23,7 @@ class MyDataController extends Controller
 
     public function updateMyData(Request $request)
     {
+      // dd($request);
       return DB::transaction(function () use ($request) {
 
         $user = Auth::user();
@@ -40,6 +41,18 @@ class MyDataController extends Controller
           //   'password' => Hash::make($request['password']),
           // ]);
           if ($user) {
+
+            // $user->name = $request['name'];
+            // $user->telephone = $request['telephone'];
+            // $user->country_id = $request['country_id'];
+            // $user->company = $request['company'];
+            // $user->address = $request['address'];
+            // $user->city = $request['city'];
+            // $user->country_id = $request['country_id'];
+            // $user->other_country_value = $request['other_country'];
+            // $user->email = $request['email'];
+            // $user->password = Hash::make($request['password']);
+            //
             $user->fill($request->all());
             $user->password = Hash::make($request['password']);
             $user->save();

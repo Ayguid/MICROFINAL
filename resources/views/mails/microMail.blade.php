@@ -9,6 +9,12 @@ Para : @foreach ($toMail as $key => $eachToMail)
   @endif
 @endforeach
 
+@isset($country)
+  **
+  Origen web: {{$country->country_desc}}
+  **
+@endisset
+
 {{-- **{{$product}}** --}}
 @isset($product)
 @php
@@ -30,7 +36,15 @@ Para : @foreach ($toMail as $key => $eachToMail)
   {{$textArea}}
 </p>**
 
-
+**<p>
+  Datos extras:<br>
+  @isset($other_country)
+    Otro País: {{$other_country}}<br>
+  @endisset
+  @isset($city)
+    Ciudad: {{$city}}
+  @endisset
+</p>**
 
 
 {{-- @component('mail::button', ['url' => $link])

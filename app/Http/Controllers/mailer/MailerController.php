@@ -24,7 +24,14 @@ class MailerController extends Controller
 
   public function sendMail(Request $request)
   {
+    // return response()->json([
+    //   'status' => 'ok',
+    //   'data' => $request->all()
+    // ]);
+
     $country = session('country');
+    $other_country = $request->country;
+    $city = $request->city;
     $to = $request->to;
     $from = $request->from;
     $product = $request->product;
@@ -52,7 +59,7 @@ class MailerController extends Controller
 
     if (!$validator->fails()) {
       Mail::to($users)
-      ->send(new MailConsulta($users, $from, $product, $text, 'micro'));//para micro
+      ->send(new MailConsulta($users, $from, $product, $text, 'micro', $other_country, $city, $country));//para micro
 
       Mail::to($from)
       ->send(new MailConsulta($from, $defaultEmail, $product, $text, 'user'));//para usuario

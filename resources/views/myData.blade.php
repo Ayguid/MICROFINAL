@@ -59,12 +59,21 @@
                             <strong>{{ $message }}</strong>
                         </span>
                     @enderror --}}
-                    <select class="form-control" name="country_id">
+                    {{-- {{$data}} --}}
+                    <select id="country_id" class="form-control" name="country_id">
                       @foreach (App\Models440\Country::all() as $country)
-                        <option value="{{$country->country_id}}" {{($data->country_id == $country->id)?'selected':''}}>{{$country->country_desc}}</option>
+                        <option value="{{$country->id}}" {{($data->country_id == $country->id)?'selected':''}}>{{$country->country_desc}}</option>
                       @endforeach
+                      <option value="" {{(!$data->country_id)?'selected':''}}>{{__('* Other')}}</option>
                     </select>
                 </div>
+            </div>
+            <div id="other_country" class="{{(!$data->other_country_value)?'hidden':''}} form-group row">
+              <label for="other_country" class="col-md-4 col-form-label text-md-right">{{ __('* Other country') }}</label>
+              <div class="col-md-6">
+                <input id="other_country_value" type="text" class="form-control @error('other_country') is-invalid @enderror" name="other_country_value" value="{{($data->other_country_value)?$data->other_country_value:''}}" autocomplete="other_country" autofocus>
+                  <register-country-validator/>
+              </div>
             </div>
 
             <div class="form-group row">

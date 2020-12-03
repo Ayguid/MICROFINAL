@@ -16,7 +16,7 @@
 
 
             @role('superadmin')
-            <a class="btn btn-primary mb-2" href="{{route('admin.users.create')}}">Add User</a>
+            <a class="btn btn-primary mb-2" href="{{route('admin.users.create')}}">Add employee</a>
             <h3>Super Admins</h3>
             @foreach ($data['superadmins'] as $user)
               <a href="{{route('admin.users.show', $user->id)}}">{{$user->name}}</a>
@@ -35,10 +35,16 @@
             <br>
 
             <h3>Users</h3>
-            @foreach ($data['users'] as $user)
+            @php
+              $users = App\User::role('user')->orderBy('name')->paginate(25);
+            @endphp
+            @foreach ($users as $user)
               <a href="{{route('admin.users.show', $user->id)}}">{{$user->name}}</a>
               <br>
             @endforeach
+            <div class="p-2">
+              {{ $users->links() }}
+            </div>
 
           </div>
         </div>

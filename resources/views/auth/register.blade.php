@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -10,7 +11,7 @@
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
-                        
+
                         <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
 
@@ -50,12 +51,21 @@
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror --}}
-                                <select class="form-control" name="country_id">
+                                <select id="country_id" class="form-control" name="country_id">
                                   @foreach (App\Models440\Country::all() as $country)
                                     <option value="{{$country->id ?? old('country_id') }}">{{$country->country_desc}}</option>
                                   @endforeach
+                                  <option value="">{{__('* Other')}}</option>
                                 </select>
                             </div>
+                        </div>
+
+                        <div id="other_country" class="hidden form-group row">
+                          <label for="other_country" class="col-md-4 col-form-label text-md-right">{{ __('* Other country') }}</label>
+                          <div class="col-md-6">
+                            <input id="other_country_value" type="text" class="form-control @error('other_country') is-invalid @enderror" name="other_country" value="{{ old('other_country') }}" autocomplete="other_country" autofocus>
+                              <register-country-validator/>
+                          </div>
                         </div>
 
                         <div class="form-group row">

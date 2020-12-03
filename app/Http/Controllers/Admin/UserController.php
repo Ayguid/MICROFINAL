@@ -31,8 +31,8 @@ class UserController extends Controller
 
     $data =[
       'superadmins'=> User::role('superadmin')->orderBy('name')->get(),
-      'admins'=> User::role('admin')->orderBy('name')->get(),
-      'users'=> User::role('user')->orderBy('name')->get()
+      'admins'=> User::role('admin')->orderBy('name')->get()
+      // 'users'=> User::role('user')->orderBy('name')->get()
     ];
 
     return view('admin.users.index')->with('data', $data);
