@@ -54,15 +54,15 @@ var translations;
 const lang = (document.documentElement.lang=='pt-BR')?'pt':document.documentElement.lang;
 import VueInternationalization from 'vue-i18n';
 
-import * as msgEN from '../../storage/app/public/lang/translations_en.json';
-import * as msgPT from '../../storage/app/public/lang/translations_pt.json';
+// import * as msgEN from '../../storage/app/public/lang/translations_en.json';
+// import * as msgPT from '../../storage/app/public/lang/translations_pt.json';
 // translations = translations[lang]
 switch (lang) {
   case 'en':
-  translations =  msgEN.default
+  translations =  require('../../storage/app/public/lang/translations_en.json')
   break;
   case 'pt':
-  translations = msgPT.default
+  translations =  require('../../storage/app/public/lang/translations_pt.json')
   break;
   default:
 }
