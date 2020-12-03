@@ -54,32 +54,33 @@ var translations;
 const lang = (document.documentElement.lang=='pt-BR')?'pt':document.documentElement.lang;
 import VueInternationalization from 'vue-i18n';
 
-// import * as msgEN from '../../storage/app/public/lang/translations_en.json';
-// import * as msgPT from '../../storage/app/public/lang/translations_pt.json';
-// // translations = translations[lang]
-// switch (lang) {
-//   case 'en':
-//   translations =  msgEN.default
-//   break;
-//   case 'pt':
-//   translations = msgPT.default
-//   break;
-//   default:
-// }
-
-  const msg = import (`../../storage/app/public/lang/translations_${lang}.json`).then(data=>{
+import * as msgEN from '../../storage/app/public/lang/translations_en.json';
+import * as msgPT from '../../storage/app/public/lang/translations_pt.json';
+// translations = translations[lang]
+switch (lang) {
+  case 'en':
+  translations =  msgEN.default
+  break;
+  case 'pt':
+  translations = msgPT.default
+  break;
+  default:
+}
 
 
-    // sacar de aca si hay que volver translations back
+fetch(window.axios.defaults.baseURL+`/storage/lang/translations_${lang}.json`)
+  .then(response => response.json())
+  .then(data => {
+    // sacar de aca si hay que volver translations back  -----
+    Vue.component('drop-zone', require('./components/DropZone.vue').default);
     Vue.use(VueInternationalization);
     let i18n = new VueInternationalization({
       locale: lang,
-      messages: data.default,
+      messages: data,
       objectNotation: true,
       keySeparator:true,
       silentTranslationWarn: true
     });
-    Vue.component('drop-zone', require('./components/DropZone.vue').default);
 
     const app = new Vue({
       el: '#app',
@@ -92,9 +93,7 @@ import VueInternationalization from 'vue-i18n';
         }
       },
       mounted(){
-
       }
     });
-    // sacar de aca si hay que volver translations back end
-
-    });
+    // sacar de aca si hay que volver translations back end -----
+  });
