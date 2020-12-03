@@ -29,7 +29,7 @@ Vue.use(VueSweetalert2, options);
 
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
-Vue.component('drop-zone', require('./components/DropZone.vue').default);
+// Vue.component('drop-zone', require('./components/DropZone.vue').default);
 Vue.component('contact-mail-form', require('./components/ContactMailForm.vue').default);
 
 Vue.component('products-portfolio', require('./components/views/ProductsPortfolio.vue').default);
@@ -54,30 +54,32 @@ var translations;
 const lang = (document.documentElement.lang=='pt-BR')?'pt':document.documentElement.lang;
 import VueInternationalization from 'vue-i18n';
 
-// translations = translations[lang]
-switch (lang) {
-  case 'en':
-  translations =  require('../../storage/app/public/lang/translations_en.json')
-  break;
-  case 'pt':
-  translations = require('../../storage/app/public/lang/translations_pt.json')
-  break;
-  default:
-}
+// import * as msgEN from '../../storage/app/public/lang/translations_en.json';
+// import * as msgPT from '../../storage/app/public/lang/translations_pt.json';
+// // translations = translations[lang]
+// switch (lang) {
+//   case 'en':
+//   translations =  msgEN.default
+//   break;
+//   case 'pt':
+//   translations = msgPT.default
+//   break;
+//   default:
+// }
 
-
-
+  const msg = import (`../../storage/app/public/lang/translations_${lang}.json`).then(data=>{
 
 
     // sacar de aca si hay que volver translations back
     Vue.use(VueInternationalization);
     let i18n = new VueInternationalization({
       locale: lang,
-      messages: translations,
+      messages: data.default,
       objectNotation: true,
       keySeparator:true,
       silentTranslationWarn: true
     });
+    Vue.component('drop-zone', require('./components/DropZone.vue').default);
 
     const app = new Vue({
       el: '#app',
@@ -90,7 +92,9 @@ switch (lang) {
         }
       },
       mounted(){
-        // console.log("Welcome tu MICRO, curious you!");
+
       }
     });
     // sacar de aca si hay que volver translations back end
+
+    });
