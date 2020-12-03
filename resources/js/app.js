@@ -29,7 +29,7 @@ Vue.use(VueSweetalert2, options);
 
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
-// Vue.component('drop-zone', require('./components/DropZone.vue').default);
+Vue.component('drop-zone', require('./components/DropZone.vue').default);
 Vue.component('contact-mail-form', require('./components/ContactMailForm.vue').default);
 
 Vue.component('products-portfolio', require('./components/views/ProductsPortfolio.vue').default);
@@ -68,15 +68,18 @@ switch (lang) {
 }
 
 
-fetch(window.axios.defaults.baseURL+`/storage/lang/translations_${lang}.json`)
-  .then(response => response.json())
-  .then(data => {
-    // sacar de aca si hay que volver translations back  -----
-    Vue.component('drop-zone', require('./components/DropZone.vue').default);
+// fetch(window.axios.defaults.baseURL+`/storage/lang/translations_${lang}.json`)
+//   .then(response => response.json())
+//   .then(data => {
+//     console.log(data)
+//   });
+
+
+    // sacar de aca si hay que volver translations back
     Vue.use(VueInternationalization);
     let i18n = new VueInternationalization({
       locale: lang,
-      messages: data,
+      messages: translations,
       objectNotation: true,
       keySeparator:true,
       silentTranslationWarn: true
@@ -95,5 +98,4 @@ fetch(window.axios.defaults.baseURL+`/storage/lang/translations_${lang}.json`)
       mounted(){
       }
     });
-    // sacar de aca si hay que volver translations back end -----
-  });
+    // sacar de aca si hay que volver translations back end
