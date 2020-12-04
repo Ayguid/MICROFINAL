@@ -13,7 +13,7 @@
                         @csrf
 
                         <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
+                            <label for="name" class="col-md-4 col-form-label text-md-right">* {{ __('Name') }}</label>
 
                             <div class="col-md-6">
                                 <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
@@ -42,7 +42,7 @@
 
 
                         <div class="form-group row">
-                            <label for="country_id" class="col-md-4 col-form-label text-md-right">{{ __('Country') }}</label>
+                            <label for="country_id" class="col-md-4 col-form-label text-md-right">* {{ __('Country') }}</label>
                             <div class="col-md-6">
                                 {{-- <input id="country_id" type="text" class="form-control @error('country_id') is-invalid @enderror" name="country_id" value="{{ old('country_id') }}" autocomplete="country_id" autofocus>
 
@@ -69,7 +69,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="company" class="col-md-4 col-form-label text-md-right">{{ __('Company') }}</label>
+                            <label for="company" class="col-md-4 col-form-label text-md-right">* {{ __('Company') }}</label>
 
                             <div class="col-md-6">
                                 <input id="company" type="text" class="form-control @error('company') is-invalid @enderror" name="company" value="{{ old('company') }}" autocomplete="company" autofocus>
@@ -97,7 +97,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="city" class="col-md-4 col-form-label text-md-right">{{ __('City') }}</label>
+                            <label for="city" class="col-md-4 col-form-label text-md-right">* {{ __('City') }}</label>
 
                             <div class="col-md-6">
                                 <input id="city" type="text" class="form-control @error('city') is-invalid @enderror" name="city" value="{{ old('city') }}" autocomplete="city" autofocus>
@@ -112,7 +112,7 @@
 
 
                         <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+                            <label for="email" class="col-md-4 col-form-label text-md-right">* {{ __('E-Mail Address') }}</label>
 
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
@@ -126,7 +126,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+                            <label for="password" class="col-md-4 col-form-label text-md-right">* {{ __('Password') }}</label>
 
                             <div class="col-md-6">
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
@@ -140,7 +140,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
+                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">* {{ __('Confirm Password') }}</label>
 
                             <div class="col-md-6">
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
@@ -155,6 +155,9 @@
                             </div>
                         </div>
                     </form>
+                    <div class="">
+                      {{ __('* Required fields') }}
+                    </div>
                 </div>
             </div>
         </div>

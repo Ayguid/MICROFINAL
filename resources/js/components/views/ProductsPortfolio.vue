@@ -56,7 +56,16 @@
   <b-button v-b-modal.modal-1>{{(this.category.get_top_categories.id==1)?($t("Consultar por otras carreras")):($t("Consultar por otros productos"))}}</b-button>
 </div>
 <!-- <img width="130"  class="d-inline-block align-center" :src="$root.baseUrl+'/images/logos/logo-micro-'+$root.local+'.jpg'" alt=""> -->
-<b-modal id="modal-1" title="Micro" :hide-footer="true" >
+<b-modal v-if="this.category.get_top_categories.id==1" id="modal-1" title="Micro" :hide-footer="true" >
+  <contact-mail-form
+  :modal="'modal-1'"
+  :title="$t('Consultar por otras carreras')"
+  :images="''"
+  :to="'Ingenieria'"
+  :product="''"
+  ></contact-mail-form>
+</b-modal>
+<b-modal v-else id="modal-1" title="Micro" :hide-footer="true" >
   <contact-mail-form
   :modal="'modal-1'"
   :title="$t('Consultar por otros productos')"

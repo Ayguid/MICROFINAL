@@ -33,5 +33,6 @@
   "Address": "Dirección",
   "Search": "Buscar",
   "* Other": "* Otro",
-  "* Other country": "* Otro país"
+  "* Other country": "* Otro país",
+  "* Required fields": "* Campos obligatorios"
 }
