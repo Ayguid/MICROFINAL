@@ -57,15 +57,15 @@ import VueInternationalization from 'vue-i18n';
 // import * as msgEN from '../../storage/app/public/lang/translations_en.json';
 // import * as msgPT from '../../storage/app/public/lang/translations_pt.json';
 // translations = translations[lang]
-switch (lang) {
-  case 'en':
-  translations =  require('../../storage/app/public/lang/translations_en.json')
-  break;
-  case 'pt':
-  translations =  require('../../storage/app/public/lang/translations_pt.json')
-  break;
-  default:
-}
+// switch (lang) {
+//   case 'en':
+//   translations =  require('../../storage/app/public/lang/translations_en.json')
+//   break;
+//   case 'pt':
+//   translations =  require('../../storage/app/public/lang/translations_pt.json')
+//   break;
+//   default:
+// }
 
 
 // fetch(window.axios.defaults.baseURL+`/storage/lang/translations_${lang}.json`)
@@ -82,7 +82,8 @@ switch (lang) {
       messages: translations,
       objectNotation: true,
       keySeparator:true,
-      silentTranslationWarn: true
+      silentTranslationWarn: true,
+      autoReload:true
     });
 
     const app = new Vue({
@@ -95,7 +96,16 @@ switch (lang) {
           authuser: window.Laravel.user
         }
       },
-      mounted(){
+      async mounted(){
+        const res = await fetch(window.axios.defaults.baseURL+`/storage/lang/translations_${lang}.json`)
+          .then(response => response.json())
+          .then(data => {
+            i18n.setLocaleMessage(lang, data[lang])
+            // console.log(data[lang])
+          })
+        // console.log(res);
+        // this.$i18n.setLocaleMessage(payload, res.data)
+        // commit(types.SET_LANG, payload)
       }
     });
     // sacar de aca si hay que volver translations back end
