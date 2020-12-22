@@ -26,12 +26,20 @@ class UserController extends Controller
     // $this->middleware('role:superadmin');
   }
 
-  public function index()
+  public function index(Request $request)
   {
+    // dd($request['query']);
 
+    if ($request['query']) {
+      $users = User::role('user')->where('email', $request['query'])->orderBy('name')->paginate(25);
+    }else {
+      $users = User::role('user')->orderBy('name')->paginate(25);
+    }
+    // $users = User::role('user')->orderBy('name')->paginate(25);
     $data =[
       'superadmins'=> User::role('superadmin')->orderBy('name')->get(),
-      'admins'=> User::role('admin')->orderBy('name')->get()
+      'admins'=> User::role('admin')->orderBy('name')->get(),
+      'users'=> $users
       // 'users'=> User::role('user')->orderBy('name')->get()
     ];
 

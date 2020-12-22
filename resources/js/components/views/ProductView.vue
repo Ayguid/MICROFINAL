@@ -117,7 +117,7 @@
           <div v-if="product.has_zip || product.has_cad_2d" class="">
             <div v-if="$root.authuser" class="">
               <div v-for="zip in files.zips" class="">
-                <a target="_blank" class="btn file" role="button" :href="$root.baseUrl+'/storage/zips/'+zip.file_path" >
+                <a download class="btn file" role="button" :href="$root.baseUrl+'/storage/zips/'+zip.file_path" >
                   <i class="far fa-file-archive bigIcon"></i>{{zip.file_path}}</a>
                 </div>
               <div v-for="dxf in files.dxfs" class="">
