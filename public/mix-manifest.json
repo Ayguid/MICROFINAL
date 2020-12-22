@@ -1,7 +1,4 @@
 {
     "/js/app.js": "/js/app.js",
-    "/css/app.css": "/css/app.css",
-    "/lang-translations_en-json.js": "/lang-translations_en-json.js",
-    "/lang-translations_pt-json.js": "/lang-translations_pt-json.js",
-    "/lang-translations_es-json.js": "/lang-translations_es-json.js"
+    "/css/app.css": "/css/app.css"
 }

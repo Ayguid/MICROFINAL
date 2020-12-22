@@ -2019,7 +2019,7 @@ __webpack_require__.r(__webpack_exports__);
   props: ['product', 'to', 'images', 'title', 'modal'],
   data: function data() {
     return {
-      email: '',
+      email: this.$root.authuser ? this.$root.authuser.email : '',
       contactUrl: this.$root.local + '/send-mail',
       isLoading: false,
       fullPage: true,
@@ -2033,7 +2033,18 @@ __webpack_require__.r(__webpack_exports__);
     sendMail: function sendMail(event) {
       var _this = this;
 
-      event.preventDefault();
+      event.preventDefault(); // console.log(this.validateEmail(this.email));
+      // return
+
+      if (!this.validateEmail(this.email)) {
+        this.$swal({
+          type: 'warning',
+          title: 'Hubo un error',
+          text: 'Email requerido'
+        });
+        return;
+      }
+
       var formData = new FormData(event.target);
       this.isLoading = true;
       axios.post(this.contactUrl, formData).then(function (response) {
@@ -2054,6 +2065,13 @@ __webpack_require__.r(__webpack_exports__);
           _this.$bvModal.hide(_this.modal);
         }
       });
+    },
+    validateEmail: function validateEmail(email) {
+      if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(email)) {
+        return true;
+      }
+
+      return false;
     },
     onCancel: function onCancel() {
       console.log('User cancelled the loader.');
@@ -82427,13 +82445,31 @@ var render = function() {
               : _vm._e(),
             _vm._v(" "),
             _c("div", { staticClass: "form-group" }, [
-              _c("label", { attrs: { for: "email" } }, [_vm._v("User Email")]),
+              _c("label", { attrs: { for: "email" } }, [
+                _vm._v("User Email *")
+              ]),
               _c("br"),
               _vm._v(" "),
               _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.email,
+                    expression: "email"
+                  }
+                ],
                 staticClass: "form-control",
                 attrs: { id: "user_email", type: "email", name: "from" },
-                domProps: { value: _vm.user ? _vm.user.email : "" }
+                domProps: { value: _vm.email },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.email = $event.target.value
+                  }
+                }
               })
             ])
           ]),
@@ -82541,12 +82577,18 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "form-group" }, [
-      _c("label", { attrs: { for: "city" } }, [_vm._v("Ciudad")]),
+      _c("label", { attrs: { for: "city" } }, [_vm._v("Ciudad *")]),
       _c("br"),
       _vm._v(" "),
       _c("input", {
         staticClass: "form-control",
-        attrs: { id: "city", type: "text", name: "city", value: "" }
+        attrs: {
+          id: "city",
+          type: "text",
+          name: "city",
+          required: "",
+          value: ""
+        }
       })
     ])
   }

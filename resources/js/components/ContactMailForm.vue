@@ -21,8 +21,8 @@
           </p>
         </div>
           <div class="form-group">
-            <label for="email">User Email</label><br>
-            <input id="user_email" type="email" name="from" :value="user ? user.email : ''" class="form-control">
+            <label for="email">User Email *</label><br>
+            <input id="user_email" type="email" name="from" v-model="email" class="form-control">
           </div>
         </div>
         <div v-if="this.product" class="col-6">
@@ -43,8 +43,8 @@
           <input id="country" type="text" name="country" value="" class="form-control">
         </div>
         <div class="form-group">
-          <label for="city">Ciudad</label><br>
-          <input id="city" type="text" name="city" value="" class="form-control">
+          <label for="city">Ciudad *</label><br>
+          <input id="city" type="text" name="city" required value="" class="form-control">
         </div>
       </div>
 
@@ -97,7 +97,7 @@ export default {
   props: ['product', 'to', 'images', 'title', 'modal'],
   data(){
     return  {
-      email: '',
+      email: this.$root.authuser ? this.$root.authuser.email : '',
       contactUrl:this.$root.local+'/send-mail',
       isLoading: false,
       fullPage: true,
@@ -110,6 +110,16 @@ export default {
   methods:{
     sendMail:function(event){
       event.preventDefault();
+      // console.log(this.validateEmail(this.email));
+      // return
+      if(!this.validateEmail(this.email)){
+        this.$swal({
+          type: 'warning',
+          title: 'Hubo un error',
+          text: 'Email requerido'
+        });
+        return
+      }
       var formData = new FormData(event.target);
       this.isLoading = true;
       axios.post(this.contactUrl,formData).then((response) => {
@@ -128,6 +138,13 @@ export default {
         }
       });
 
+    },
+    validateEmail: function(email) {
+      if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(email))
+       {
+         return (true)
+       }
+         return (false)
     },
 
     onCancel: function() {
