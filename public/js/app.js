@@ -96073,8 +96073,7 @@ var app = new Vue({
             return _babel_runtime_regenerator_index_js__WEBPACK_IMPORTED_MODULE_0___default.a.awrap(fetch(window.axios.defaults.baseURL + "/storage/lang/translations_".concat(lang, ".json")).then(function (response) {
               return response.json();
             }).then(function (data) {
-              i18n.setLocaleMessage(lang, data[lang]);
-              console.log(data[lang]);
+              i18n.setLocaleMessage(lang, data[lang]); // console.log(data[lang])
             }));
 
           case 2:
