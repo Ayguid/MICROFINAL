@@ -5,14 +5,15 @@ namespace App\Exports;
 use App\Models440\Product;
 use App\Models440\Category;
 use Maatwebsite\Excel\Concerns\FromCollection;
-// use Maatwebsite\Excel\Concerns\WithMapping;
+use Maatwebsite\Excel\Concerns\WithMapping;
 // use Maatwebsite\Excel\Concerns\Exportable;
 // use Maatwebsite\Excel\Concerns\WithMultipleSheets;
 // use Maatwebsite\Excel\Concerns\WithHeadings;
 use Maatwebsite\Excel\Concerns\ShouldAutoSize;
 use Maatwebsite\Excel\Concerns\WithTitle;
+use Illuminate\Support\Collection;
 
-class ProductsExport implements FromCollection, ShouldAutoSize, WithTitle
+class ProductsExport implements FromCollection, ShouldAutoSize, WithTitle, WithMapping
 {
     private $category_id;
 
@@ -23,13 +24,9 @@ class ProductsExport implements FromCollection, ShouldAutoSize, WithTitle
 
     public function collection()
     {
-        $catWithProds = Category::where('parent_id',$this->category_id)->get();
-        $array = [];
-        foreach ($catWithProds as $cat) {
-          array_push($array, $cat->products);
-        }
-        return collect($array);
+        $catWithProds = Category::where('parent_id', $this->category_id)->get();
 
+        return Product::whereIn('category_id', $catWithProds->pluck('id') )->get();
     }
 
     public function title(): string
@@ -37,20 +34,20 @@ class ProductsExport implements FromCollection, ShouldAutoSize, WithTitle
       return Category::find($this->category_id)->title_es;
     }
 
-    // public function map($product): array
-    //   {
-    //       return [
-    //           $product->category_id,
-    //           $product->title_es,
-    //           $product->title_en,
-    //           $product->title_pt,
-    //           $product->desc_es,
-    //           $product->desc_en,
-    //           $product->desc_pt,
-    //           $product->product_code,
-    //           $product->attributes
-    //       ];
-    //   }
+    public function map($product): array
+      {   
+          return [
+              $product->category_id,
+              $product->title_es,
+              $product->title_en,
+              $product->title_pt,
+              $product->desc_es,
+              $product->desc_en,
+              $product->desc_pt,
+              $product->product_code,
+              $product->attributes
+          ];
+      }
 
     // public function headings(): array
     // {
