@@ -41,6 +41,7 @@
             <br>
 
             <h3>Users</h3>
+            <a class="btn btn-primary mb-2" href="{{route('admin.users.export')}}">Export Users Table</a>
             <div class="pb-2">
               <form id="searchForm" action="{{route("admin.users")}}" method="get" class="form-inline my-2 my-lg-0">
                 {{-- @csrf --}}

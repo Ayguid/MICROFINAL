@@ -61,6 +61,10 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function()
     Route::get('/translations','Admin\TranslationsController@index')->name('admin.translations');
     Route::get('/translations/find','Admin\TranslationsController@find')->name('admin.translations.find');
     Route::post('/translations/save','Admin\TranslationsController@save')->name('admin.translations.save');
+
+    //Database Exports
+    Route::get('/users/export', 'Admin\DataBaseExporter@exportUsers')->name('admin.users.export');
+    Route::get('/products/export', 'Admin\DataBaseExporter@exportProducts')->name('admin.products.export');
 });
 
 
