@@ -4,6 +4,7 @@
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-md-8">
+            <a href="{{route('admin.users')}}" class="btn btn-primary col-2 mb-2">Users</a>
         <div class="card">
           <div class="card-header">User: </div>
 
@@ -19,6 +20,7 @@
             @if(session('alert-danger'))
               <div class="alert alert-danger"><i class="fa fa-times" aria-hidden="true"></i> <strong>{!! session('alert-danger') !!}</strong></div>
             @endif
+
 
 
             <form  method="POST" action="{{route('admin.users.update', $data['user']->id)}}">
@@ -52,11 +54,12 @@
                     </div>
                   </div>
 
+                @if ($data['user']->hasRole('user'))
                 <div class="form-group row">
                   <label for="telephone" class="col-md-4 col-form-label text-md-right">{{ __('Telephone') }}</label>
 
                   <div class="col-md-6">
-                    <input disabled id="telephone" type="telephone" class="form-control" name="telephone" value="{{$data['user']->telephone}}">
+                    <input {{!$data['edit']?'disabled':''}} id="telephone" type="telephone" class="form-control" name="telephone" value="{{$data['user']->telephone}}">
                     {{-- {{$data['user']->telephone}} --}}
                       {{-- @error('tel')
                         <span class="invalid-feedback" role="alert">
@@ -70,10 +73,13 @@
                   <label for="coutry" class="col-md-4 col-form-label text-md-right">{{ __('Country') }}</label>
 
                   <div class="col-md-6">
-                    @if (!$data['user']->other_country_value)
-                      <input disabled id="telephone" type="telephone" class="form-control" name="telephone" value="{{App\Models440\Country::find($data['user']->country_id)->country_desc }}">
+                    {{-- @php
+                      dd($data['user']->hasRole('user'));
+                    @endphp --}}
+                    @if (!$data['user']->other_country_value && $data['user']->country_id)
+                      <input disabled id="country" type="text" class="form-control" name="country" value="{{App\Models440\Country::find($data['user']->country_id)->country_desc }}">
                     @else
-                      <input disabled id="telephone" type="telephone" class="form-control" name="telephone" value="{{$data['user']->other_country_value }}">
+                      <input disabled id="country" type="text" class="form-control" name="country" value="{{$data['user']->other_country_value }}">
                     @endif
                     {{-- {{$data['user']->telephone}} --}}
                       {{-- @error('tel')
@@ -83,6 +89,8 @@
                       @enderror --}}
                     </div>
                   </div>
+                  @endif
+
 
                   <div class="form-group row">
                     <label for="role" class="col-md-4 col-form-label text-md-right">{{ __('Role') }}</label>
@@ -117,6 +125,8 @@
                             @endforeach
                           </tr>
 
+                          @isset($data['countries'])
+
                           @foreach ($data['countries'] as $country)
                             <tr>
                               {{-- <input  type="checkbox" class="m-2 form-control @error('country') is-invalid @enderror" name="country[]" value="{{$country->id}}" >{{$country->country_desc}}<br> --}}
@@ -127,6 +137,7 @@
                                 @endforeach
                               </tr>
                             @endforeach
+                          @endisset
                           </table>
                         </div>
 

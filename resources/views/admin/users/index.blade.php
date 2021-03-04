@@ -4,6 +4,7 @@
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-md-8">
+                    <a href="{{route('home')}}" class="btn btn-primary col-2 mb-2">Home</a>
         <div class="card">
           <div class="card-header">Dashboard</div>
 
@@ -41,7 +42,7 @@
             <br>
 
             <h3>Users</h3>
-            <a class="btn btn-primary mb-2" href="{{route('admin.users.export')}}">Export Users Table</a>
+            {{-- <a class="btn btn-primary mb-2" href="{{route('admin.users.export')}}">Export Users Table</a> --}}
             <div class="pb-2">
               <form id="searchForm" action="{{route("admin.users")}}" method="get" class="form-inline my-2 my-lg-0">
                 {{-- @csrf --}}

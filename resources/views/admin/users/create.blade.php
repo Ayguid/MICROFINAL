@@ -4,6 +4,7 @@
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-md-8">
+            <a href="{{route('admin.users')}}" class="btn btn-primary col-2 mb-2">Users</a>
         <div class="card">
           <div class="card-header">Create Users</div>
 

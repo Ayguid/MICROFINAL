@@ -10,6 +10,12 @@ use App\Http\Controllers\Controller;
 
 class DataBaseExporter extends Controller
 {
+
+    public function index()
+    {
+      return view('admin.database');
+    }
+
     public function exportUsers()
     {
         return Excel::download(new UsersExport, 'users.xlsx');

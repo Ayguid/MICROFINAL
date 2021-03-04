@@ -31,12 +31,15 @@
                     <div class="mb-2">
                       <a class="btn btn-primary" href="{{route('admin.translations')}}">Translations</a>
                     </div>
-                    
+
                     <div class="mb-2">
                       <a class="btn btn-primary" href="{{route('admin.fileManager')}}">Media Manager</a>
                     </div>
                     {{-- <div class="mb-2">
                       <a class="btn btn-primary" href="{{route('admin.roles')}}">Roles</a>
+                    </div> --}}
+                    {{-- <div class="mb-2">
+                      <a class="btn btn-primary" href="{{route('admin.databaseExport')}}">Database</a>
                     </div> --}}
                     @endrole
 

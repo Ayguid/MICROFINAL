@@ -4,6 +4,7 @@
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-md-8">
+                    <a href="{{route('home')}}" class="btn btn-primary col-2 mb-2">Home</a>
         <h4>{{__('messages.datos')}}</h4>
 
         {{-- {{$data}} --}}

@@ -10,6 +10,11 @@
       <div class="alert alert-danger"><i class="fa fa-times" aria-hidden="true"></i> <strong>{!! session('alert-danger') !!}</strong></div>
     @endif
 
+    <div class="row ">
+      <div class="col-md-8">
+        <a href="{{route('home')}}" class="btn btn-primary col-2 mb-2">Home</a>
+      </div>
+    </div>
 
     {{-- index  --}}
 
