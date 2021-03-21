@@ -20,6 +20,7 @@
 
 
                     @role('superadmin|admin')
+                    <h4>SuperAdmin | Admin Priviliges</h4>
                     <div class="mb-2">
                       <a class="btn btn-primary" href="{{route('admin.cats')}}">Categories</a>
                     </div>
@@ -27,7 +28,7 @@
                     @endrole
 
                     @role('superadmin')
-
+                    {{-- <h4>SuperAdmin Priviliges</h4> --}}
                     <div class="mb-2">
                       <a class="btn btn-primary" href="{{route('admin.translations')}}">Translations</a>
                     </div>
@@ -38,9 +39,9 @@
                     {{-- <div class="mb-2">
                       <a class="btn btn-primary" href="{{route('admin.roles')}}">Roles</a>
                     </div> --}}
-                    {{-- <div class="mb-2">
+                    <div class="mb-2">
                       <a class="btn btn-primary" href="{{route('admin.databaseExport')}}">Database</a>
-                    </div> --}}
+                    </div>
                     @endrole
 
 
