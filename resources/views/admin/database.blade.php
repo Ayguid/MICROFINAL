@@ -23,11 +23,11 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    DATABASE
+                    {{-- DATABASE --}}
 
                     @role('superadmin|admin')
                     <div class="mb-2">
-                      <a class="btn btn-primary" href="{{route('admin.users.export')}}">Export Users</a>
+                      <a class="btn btn-primary" href="{{route('admin.users.export')}}">User Table</a>
                     </div>
                     {{-- <div class="mb-2">
                       <a class="btn btn-primary" href="#">Export Products</a>
