@@ -587,8 +587,17 @@ img.logo {
 .wassapBumpUp{
   bottom: 70px;
 }
+.mobile{
+  display: none;
+}
 
-@media only screen and (max-width: 400px) {// iconos wasap query
+@media only screen and (max-width: 766px) {// iconos wasap query
+  .desktop{
+    display: none;
+  }
+  .mobile{
+    display: block;
+  }
   .wassapfloat{
     bottom: 5px;
     right: 25px;

@@ -11914,7 +11914,19 @@ img.logo {
   bottom: 70px;
 }
 
-@media only screen and (max-width: 400px) {
+.mobile {
+  display: none;
+}
+
+@media only screen and (max-width: 766px) {
+  .desktop {
+    display: none;
+  }
+
+  .mobile {
+    display: block;
+  }
+
   .wassapfloat {
     bottom: 5px;
     right: 25px;
