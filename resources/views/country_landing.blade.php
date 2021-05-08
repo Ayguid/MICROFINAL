@@ -36,11 +36,14 @@
       @php
         $country = App\Models440\Country::find(session('country')->id);
       @endphp
-      <a href="https://wa.me/{{$country->telephone}}" class="wassapfloat wassap-hide wassapBumpUp" target="_blank">
+      {{-- <a href="https://wa.me/{{$country->telephone}}" class="wassapfloat wassap-hide wassapBumpUp" target="_blank">
+        <i class="fab fa-whatsapp my-wassapfloat"></i>
+      </a> --}}
+      <a href="https://web.whatsapp.com/send?phone={{$country->telephone}}" class="wassapfloat wassap-hide wassapBumpUp" target="_blank">
         <i class="fab fa-whatsapp my-wassapfloat"></i>
       </a>
       @else
-        <a href="https://wa.me/{{$country->telephone}}" class="wassapfloat wassap-hide" target="_blank">
+        <a href="https://web.whatsapp.com/send?phone={{$country->telephone}}" class="wassapfloat wassap-hide" target="_blank">
           <i class="fab fa-whatsapp my-wassapfloat"></i>
         </a>
     @endisset
