@@ -42,6 +42,10 @@
                     <div class="mb-2">
                       <a class="btn btn-primary" href="{{route('admin.databaseExport')}}">Export to Excel</a>
                     </div>
+
+                    <div class="mb-2">
+                      <a class="btn btn-primary" href="{{route('admin.showCountryPhones')}}">Whatsapp Config</a>
+                    </div>
                     @endrole
 
 

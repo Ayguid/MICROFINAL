@@ -89,6 +89,10 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function()
     Route::get('/atts/edit/{id}', 'Admin\AttributeController@edit')->name('admin.atts.edit');
     Route::post('/atts/update/', 'Admin\AttributeController@update')->name('admin.atts.update');
     Route::delete('/atts/delete/{att}', 'Admin\AttributeController@destroy')->name('deleteAttribute');
+
+    //Whatsapp
+    Route::get('/whConfig/show', 'Admin\CountryController@showCountryTelephones')->name('admin.showCountryPhones');
+    Route::post('/whConfig/save', 'Admin\CountryController@saveTelephones')->name('admin.saveCountryPhones'); 
     });
 
 

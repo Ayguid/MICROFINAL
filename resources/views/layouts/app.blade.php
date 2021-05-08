@@ -36,6 +36,7 @@
   <link href="{{ asset('css/app.css') }}" rel="stylesheet">
   <link rel="shortcut icon" href="https://ar.microautomacion.com/wp-content/themes/micro-theme/dist/img/favicon/favicon-32x32.png" type="image/x-icon">
   <link rel="icon" href="https://ar.microautomacion.com/wp-content/themes/micro-theme/dist/img/favicon/favicon-32x32.png" type="image/x-icon">
+
 </head>
 <body>
   <div id="app">
@@ -147,6 +148,13 @@
   @yield('content')
   {{-- {{Auth::user()}} --}}
 </main>
+{{-- @php
+  $country = App\Models440\Country::find(session('country')->id);
+@endphp
+<a href="https://wa.me/{{$country->telephone}}" class="wassapfloat wassap-hide" target="_blank">
+  <i class="fab fa-whatsapp my-wassapfloat"></i>
+</a> --}}
+
 </div>
 </body>
 </html>

@@ -11898,3 +11898,30 @@ img.logo {
   transform: scale(1.1);
 }
 
+.wassapfloat {
+  font-size: 50px;
+  color: #25d366;
+  position: fixed;
+  bottom: 20px;
+  right: 40px;
+}
+
+.wassapfloat:hover {
+  color: #25d366;
+}
+
+.wassapBumpUp {
+  bottom: 70px;
+}
+
+@media only screen and (max-width: 400px) {
+  .wassapfloat {
+    bottom: 5px;
+    right: 25px;
+  }
+
+  .wassapBumpUp {
+    bottom: 55px;
+  }
+}
+

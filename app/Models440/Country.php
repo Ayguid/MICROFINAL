@@ -13,5 +13,8 @@ class Country extends Model
     //
     protected $table= 'countries';
 
-    
+    protected $fillable = [
+    'country_desc', 'locale_key', 'default_lang', 'country_shortcode', 'telephone'
+    ];
+
 }

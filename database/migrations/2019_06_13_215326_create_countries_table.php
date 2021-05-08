@@ -19,6 +19,7 @@ class CreateCountriesTable extends Migration
             $table->string('country_shortcode');
             $table->string('locale_key');
             $table->string('default_lang');
+            $table->string('telephone');
             $table->timestamps();
         });
     }

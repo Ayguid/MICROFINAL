@@ -18,6 +18,12 @@
       <div class="">
         @include('components.category-menu')
       </div>
+      @php
+        $country = App\Models440\Country::find(session('country')->id);
+      @endphp
+      {{-- <a href="https://wa.me/{{$country->telephone}}" class="wassapfloat wassap-hide" target="_blank">
+        <i class="fab fa-whatsapp my-wassapfloat"></i>
+      </a> --}}
     @endisset
 
 
@@ -27,6 +33,16 @@
         :country='{!! json_encode(session('country')) !!}'
         :category='{!! json_encode($data['category']) !!}'
       ></products-portfolio>
+      @php
+        $country = App\Models440\Country::find(session('country')->id);
+      @endphp
+      <a href="https://wa.me/{{$country->telephone}}" class="wassapfloat wassap-hide wassapBumpUp" target="_blank">
+        <i class="fab fa-whatsapp my-wassapfloat"></i>
+      </a>
+      @else
+        <a href="https://wa.me/{{$country->telephone}}" class="wassapfloat wassap-hide" target="_blank">
+          <i class="fab fa-whatsapp my-wassapfloat"></i>
+        </a>
     @endisset
 
 
@@ -49,7 +65,12 @@
         {{ $data['products']->appends(request()->except('page'))->links() }}
       </div>
     @endisset
-
+    {{-- @php
+      $country = App\Models440\Country::find(session('country')->id);
+    @endphp
+    <a href="https://wa.me/{{$country->telephone}}" class="wassapfloat wassap-hide" target="_blank">
+      <i class="fab fa-whatsapp my-wassapfloat"></i>
+    </a> --}}
 
     </div>
   @endsection
