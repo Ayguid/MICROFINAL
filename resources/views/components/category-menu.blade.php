@@ -1,11 +1,11 @@
-<div class="col-12 d-md-none mt-2 mb-2">
+{{-- <div class="col-12 d-md-none mt-2 mb-2">
   <button class="btn btn-outline-primary btn-block" type="button" data-toggle="collapse" data-target="#catMenu" aria-controls="catMenu" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
     <span class="">Categorias</span>
   </button>
-</div>
+</div> --}}
 
 <div class="navbar navbar-expand-md navbar-light p-0">
-  <div class="collapse navbar-collapse" id="catMenu">
+  <div class="" id="catMenu">
     <div class="row">
       @foreach ($data['categories'] as $cat)
         <div class="col-12 col-md-4 col-lg-3">
