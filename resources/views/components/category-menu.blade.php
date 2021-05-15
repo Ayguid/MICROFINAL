@@ -30,7 +30,9 @@
 
         @if (session('country')->id==2 || session('country')->country_desc == "Brasil")
           <div class="col-12 col-md-4 col-lg-3">
-            <a target="_blank" href="https://www.schmalz.com/en/" class="w-100 btn btn-primary"> <img width="22%" src="https://www.schmalz.com/skin/frontend/schmalz/default/images/logo.svg" alt=""> </a>
+            <a target="_blank" href="https://www.schmalz.com/en/" class="w-100 btn btn-primary">
+              <img width="22%" src="{{asset('./schmalz_logo.svg')}}" alt="">
+            </a>
           </div>
         @endif
 
