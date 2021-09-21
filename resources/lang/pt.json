@@ -32,7 +32,13 @@
   "City": "Cidade",
   "Address": "Endereço",
   "Search": "Pesquisa",
-  "* Other": "* Outro",
-  "* Other country": "* Outro país",
-  "* Required fields": "* Campos obrigatórios"
+  "Other": "Outro",
+  "Other country": "Outro país",
+  "Required fields": "Campos obrigatórios",
+  "How did you find out about our interactive catalog?": "Como você chegou até o nosso catálogo interativo?",
+  "Micro Website": "Site da MICRO automação",
+  "Social Networks": "Redes sociais",
+  "Salesman recomendation": "Recomendação do vendedor",
+  "Colleague recomendation": "Recomendação de um colega",
+  "Teaching institution": "Institucion de enseñanza"
 }
