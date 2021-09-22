@@ -13,21 +13,6 @@ use App\Models440\User_Title;
 use DB;
 // use App;
 /*
-MAIL_MAILER=smtp
-MAIL_HOST=smtp.mailtrap.io
-MAIL_PORT=2525
-MAIL_USERNAME=4fc46782081b25
-MAIL_PASSWORD=d74af13f388551
-MAIL_ENCRYPTION=tls
-
-MAIL_MAILER=sendmail
-MAIL_HOST=smtp.hostinger.com.ar
-MAIL_PORT=587
-MAIL_USERNAME=info@catalogo-micro.com
-MAIL_PASSWORD=Micro1234
-MAIL_ENCRYPTION=tls
-MAIL_FROM_ADDRESS=info@catalogo-micro.com
-MAIL_FROM_NAME="${APP_NAME}"
 
 */
 class MailerController extends Controller
