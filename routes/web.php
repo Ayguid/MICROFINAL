@@ -14,7 +14,7 @@
 // Route::get('/', function () {
 //   return view('welcome');
 // });
-Route::get('/testMail', 'mailer\MailerController@sendMail');
+//Route::get('/testMail', 'mailer\MailerController@sendMail');
 
 Route::get('/', 'LandingController@index')->name('landing');
 
