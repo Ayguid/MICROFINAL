@@ -14,7 +14,7 @@
 // Route::get('/', function () {
 //   return view('welcome');
 // });
-
+Route::get('/testMail', 'mailer\MailerController@sendMail');
 
 Route::get('/', 'LandingController@index')->name('landing');
 
@@ -92,7 +92,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function()
 
     //Whatsapp
     Route::get('/whConfig/show', 'Admin\CountryController@showCountryTelephones')->name('admin.showCountryPhones');
-    Route::post('/whConfig/save', 'Admin\CountryController@saveTelephones')->name('admin.saveCountryPhones'); 
+    Route::post('/whConfig/save', 'Admin\CountryController@saveTelephones')->name('admin.saveCountryPhones');
     });
 
 

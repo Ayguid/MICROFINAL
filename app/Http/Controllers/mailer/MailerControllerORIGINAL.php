@@ -12,7 +12,24 @@ use App\User;
 use App\Models440\User_Title;
 use DB;
 // use App;
+/*
+MAIL_MAILER=smtp
+MAIL_HOST=smtp.mailtrap.io
+MAIL_PORT=2525
+MAIL_USERNAME=4fc46782081b25
+MAIL_PASSWORD=d74af13f388551
+MAIL_ENCRYPTION=tls
 
+MAIL_MAILER=sendmail
+MAIL_HOST=smtp.hostinger.com.ar
+MAIL_PORT=587
+MAIL_USERNAME=info@catalogo-micro.com
+MAIL_PASSWORD=Micro1234
+MAIL_ENCRYPTION=tls
+MAIL_FROM_ADDRESS=info@catalogo-micro.com
+MAIL_FROM_NAME="${APP_NAME}"
+
+*/
 class MailerController extends Controller
 {
   // protected $redirectTo = '/home';
@@ -52,17 +69,14 @@ class MailerController extends Controller
 
     $titles = User_Title::where('country_id', "=", $country->id)->where('title_id', '=', $title)->pluck('user_id');
     $users = DB::table('users')->whereIn('id', $titles)->get();
-    //$users = DB::table('users')->whereIn('email', 'guidoaimar@gmail.com')->get();
 
     $validator = Validator::make($request->all(), [
-      //'from' => 'required',
+      'from' => 'required',
     ]);
 
     if (!$validator->fails()) {
-
       Mail::to($users)
       ->send(new MailConsulta($users, $defaultEmail, $product, $text, 'micro', $other_country, $city, $country, $from));//para micro
-
 
       Mail::to($from)
       ->send(new MailConsulta($from, $defaultEmail, $product, $text, 'user'));//para usuario

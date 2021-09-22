@@ -1,5 +1,5 @@
 @component('mail::message')
-Te esta contactando **{{$fromMail}}**,
+Te esta contactando **{{$reply}}**,
  {{-- use double space for line break --}}
 Para : @foreach ($toMail as $key => $eachToMail)
   @if ($key==0)

@@ -21,18 +21,20 @@ class MailConsulta extends Mailable
     public $other_country;
     public $city;
     public $country;
+    public $reply;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($toMail, $fromMail, $product=null, $textArea=null, $view, $other_country=null, $city=null, $country=null)
+    public function __construct($toMail, $fromMail, $product=null, $textArea=null, $view, $other_country=null, $city=null, $country=null, $reply=null)
     {
         $this->view = $view;
         $this->toMail = $toMail;
         $this->fromMail = $fromMail;
         if ($other_country) $this->other_country = $other_country;
         if ($city) $this->city = $city;
+        if($reply) $this->reply = $reply;
         if ($product) {
           $this->product = $product;
         }
@@ -66,7 +68,8 @@ class MailConsulta extends Mailable
               'product'=>$this->product,
               'text_area'=>$this->textArea,
               'other_country'=>$this->other_country,
-              'city'=>$this->city
+              'city'=>$this->city,
+              'reply'=>$this->reply
               // 'link' => 'micro.com'
           ]);
     }

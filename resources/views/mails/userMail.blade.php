@@ -1,13 +1,14 @@
 @component('mail::message')
 
-<img src="http://plankwebdev.com/micro/images/logos/logo%20micro%20sin%20placa.jpg" alt="" width="200px">
+<img src="https://catalogo-micro.com/images/logos/logo-micro-es.jpg" alt="" width="200px">
 
 {{ __('messages.greeting') }} ** Micro **.
 
 
 {{ __('messages.will_reply') }} .
  {{-- use double space for line break --}}
-{{ __('messages.from') }} : **{{$toMail}}**
+{{-- {{ __('messages.from') }} : **{{$toMail}}** --}}
+
 
 {{-- **{{$product}}** --}}
 @isset($product)
@@ -24,10 +25,7 @@
 
 
 
-**<p>
-  {{ __('messages.comments') }}:
-  {{$textArea}}
-</p>**
+**<p>{{ __('messages.comments') }}:{{$textArea}}</p>**
 
 
 
