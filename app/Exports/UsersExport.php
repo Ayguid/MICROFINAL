@@ -34,6 +34,7 @@ class UsersExport implements FromCollection, WithHeadings, WithMapping, WithStyl
         $user->address,
         $user->city,
         $user->email,
+        $user->from_where,
         $user->created_at,
         $user->updated_at
 
@@ -48,7 +49,7 @@ class UsersExport implements FromCollection, WithHeadings, WithMapping, WithStyl
        //     'id', 'name', 'telephone', 'country_id', 'company', 'address', 'city', 'email', '', 'created_at', 'updated_at','other_country_value'
        // ];
        return [
-           'id', 'Nombre', 'Teléfono', 'País','Otro_país', 'Companía', 'Dirección', 'Ciudad', 'Email', 'Creado_en', 'Actualizado_en'
+           'id', 'Nombre', 'Teléfono', 'País','Otro_país', 'Companía', 'Dirección', 'Ciudad', 'Email', 'Como_contacto', 'Creado_en', 'Actualizado_en'
        ];
     }
 
