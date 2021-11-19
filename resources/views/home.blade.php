@@ -39,17 +39,18 @@
                     {{-- <div class="mb-2">
                       <a class="btn btn-primary" href="{{route('admin.roles')}}">Roles</a>
                     </div> --}}
-                    <div class="mb-2">
-                      <a class="btn btn-primary" href="{{route('admin.databaseExport')}}">Export to Excel</a>
-                    </div>
 
                     <div class="mb-2">
                       <a class="btn btn-primary" href="{{route('admin.showCountryPhones')}}">Whatsapp Config</a>
                     </div>
                     @endrole
 
-
-
+                    @role('superadmin|admin')
+                    <div class="mb-2">
+                      <a class="btn btn-primary" href="{{route('admin.databaseExport')}}">Export to Excel</a>
+                    </div>
+                    @endrole
+                    
                     @can('index users')
                       <div class="mb-2">
                         <a class="btn btn-primary" href="{{route('admin.users')}}">Users</a>
