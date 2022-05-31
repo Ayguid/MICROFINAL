@@ -2723,6 +2723,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['product', 'can_edit', 'can_edit_route'],
   data: function data() {
@@ -83292,21 +83294,6 @@ var render = function() {
             _vm._v(" "),
             _vm.product.has_cad_2d && _vm.files.dxfs[0]
               ? _c("div", { attrs: { id: "d_container" } }, [
-                  _c("div", { attrs: { id: "tapador" } }, [
-                    _c("img", {
-                      staticClass: "d-inline-block align-center",
-                      attrs: {
-                        width: "130",
-                        src:
-                          _vm.$root.baseUrl +
-                          "/images/logos/logo-micro-" +
-                          _vm.$root.local +
-                          ".jpg",
-                        alt: ""
-                      }
-                    })
-                  ]),
-                  _vm._v(" "),
                   _c("iframe", {
                     attrs: {
                       id: "cadView",

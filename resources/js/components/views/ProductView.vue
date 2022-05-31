@@ -80,9 +80,11 @@
           <p>{{$t('Visualizador 3D no disponible.')}}</p>
         </div>
         <div v-if="product.has_cad_2d && files.dxfs[0]" id="d_container">
+          <!--
           <div id="tapador">
             <img width="130"  class="d-inline-block align-center" :src="$root.baseUrl+'/images/logos/logo-micro-'+$root.local+'.jpg'" alt="">
           </div>
+        -->
           <!-- {{files.dxfs[0].file_path}} -->
           <iframe id="cadView" :src="'https://sharecad.org/cadframe/load?url=catalogo-micro.com/storage/dxfs/'+files.dxfs[0].file_path" width="100%" height="500" frameborder="0" scrolling="no" allowfullscreen="allowfullscreen"></iframe>
           <div id="tapadorBottom"></div>

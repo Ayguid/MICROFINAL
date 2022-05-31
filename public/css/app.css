@@ -11933,12 +11933,7 @@ img.logo {
   }
 
   .wassapBumpUp {
-    bottom: 30px;/*55*/
-  }
-
-  .bottomrightExtra{
-    padding: 0px;
-    margin:0px;
+    bottom: 55px;
   }
 }
 
@@ -11950,3 +11945,4 @@ img.logo {
   line-height: 60px;
   background-color: #f5f5f5;
 }
+
